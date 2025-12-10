@@ -232,7 +232,7 @@ object S03_Practice {
 
       // 用户购买排名
       val userWindow = Window.partitionBy("userId").orderBy($"orderDate")
-      val categoryWindow = Window.partitionBy("category").orderBy($"amount".desc)
+      val categoryWindow = Window.partitionBy("category").orderBy($"销售额".desc)
 
       println("\n用户购买序列:")
       orderDetails
@@ -271,27 +271,27 @@ object S03_Practice {
           GROUP BY u.city, u.userId
         )
         SELECT
-          city as 城市,
-          COUNT(DISTINCT userId) as 用户数,
-          SUM(total_amount) as 总消费,
-          AVG(total_amount) as 人均消费,
-          MAX(total_amount) as 最高消费,
-          MIN(total_amount) as 最低消费
+          city,
+          COUNT(DISTINCT userId) as user_count,
+          SUM(total_amount) as total_spend,
+          AVG(total_amount) as avg_spend,
+          MAX(total_amount) as max_spend,
+          MIN(total_amount) as min_spend
         FROM user_consumption
         GROUP BY city
-        ORDER BY 总消费 DESC
+        ORDER BY total_spend DESC
       """).show()
 
       println("\n用户复购分析:")
       spark.sql("""
         SELECT
           CASE
-            WHEN order_count = 1 THEN '一次购买'
-            WHEN order_count = 2 THEN '二次复购'
-            ELSE '多次复购'
-          END as 购买频次,
-          COUNT(*) as 用户数,
-          SUM(total_amount) as 总消费
+            WHEN order_count = 1 THEN 'one_time'
+            WHEN order_count = 2 THEN 'repeat_2'
+            ELSE 'repeat_3+'
+          END as purchase_type,
+          COUNT(*) as user_count,
+          SUM(total_amount) as total_spend
         FROM (
           SELECT
             userId,
@@ -302,11 +302,11 @@ object S03_Practice {
         )
         GROUP BY
           CASE
-            WHEN order_count = 1 THEN '一次购买'
-            WHEN order_count = 2 THEN '二次复购'
-            ELSE '多次复购'
+            WHEN order_count = 1 THEN 'one_time'
+            WHEN order_count = 2 THEN 'repeat_2'
+            ELSE 'repeat_3+'
           END
-        ORDER BY 用户数 DESC
+        ORDER BY user_count DESC
       """).show()
 
       // ============================================
