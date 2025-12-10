@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 118 products, 11 sources, 6 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/spark/S04_WordCount.scala, ${BASE}/src/main/scala/spark/S03_Practice.scala, ${BASE}/src/main/scala/spark/S01_RDDBasics.scala, ${BASE}/src/main/scala/lessons/L01_BasicSyntax.scala, ${BASE}/src/main/scala/lessons/L02_Functions.scala, ${BASE}/src/main/scala/lessons/L07_Practice.scala, ${BASE}/src/main/scala/lessons/L06_Advanced.scala, ${BASE}/src/main/scala/lessons/L03_OOP.scala, ${BASE}/src/main/scala/lessons/L04_PatternMatching.scala, ${BASE}/src/main/scala/lessons/L05_Collections.scala, ${BASE}/src/main/scala/spark/S02_SparkSQL.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
