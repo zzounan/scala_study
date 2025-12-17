@@ -1,0 +1,72 @@
+# ===================
+# sbt 构建产物
+# ===================
+target/
+project/target/
+project/project/target/
+
+# ===================
+# Maven 构建产物
+# ===================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ===================
+# IDE 配置文件
+# ===================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VSCode
+.vscode/
+
+# ===================
+# Scala 工具
+# ===================
+# Bloop (构建服务器)
+.bloop/
+
+# Metals (Scala LSP)
+.metals/
+
+# ===================
+# Java 编译产物
+# ===================
+*.class
+*.jar
+*.war
+*.ear
+
+# ===================
+# 系统文件
+# ===================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ===================
+# 日志文件
+# ===================
+*.log
+logs/
+
+# ===================
+# Spark 临时文件
+# ===================
+spark-warehouse/
+metastore_db/
+derby.log
