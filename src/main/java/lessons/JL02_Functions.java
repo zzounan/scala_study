@@ -15,7 +15,7 @@ import java.util.function.*;
  * - 高阶函数
  * - 方法引用
  */
-public class L02_Functions {
+public class JL02_Functions {
 
     public static void main(String[] args) {
 
@@ -141,7 +141,7 @@ public class L02_Functions {
         System.out.println("mutableMultiplier = 5 时, closure(10) = " + mutableClosure.apply(10));
 
         System.out.println("\n==================================================");
-        System.out.println("第二课完成！运行 L03_OOP 继续学习");
+        System.out.println("第二课完成！运行 JL03_OOP 继续学习");
         System.out.println("==================================================");
     }
 

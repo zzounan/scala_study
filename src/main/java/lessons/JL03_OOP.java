@@ -15,7 +15,7 @@ import java.util.Objects;
  * - 单例模式
  * - 不可变类（类似 Scala 的 Case Class）
  */
-public class L03_OOP {
+public class JL03_OOP {
 
     public static void main(String[] args) {
 
@@ -148,7 +148,7 @@ public class L03_OOP {
         System.out.println(handleResult(failure));
 
         System.out.println("\n==================================================");
-        System.out.println("第三课完成！运行 L04_PatternMatching 继续学习");
+        System.out.println("第三课完成！运行 JL04_PatternMatching 继续学习");
         System.out.println("==================================================");
     }
 

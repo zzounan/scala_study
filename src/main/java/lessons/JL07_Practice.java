@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * 这个文件包含一个完整的小项目：简单的任务管理系统
  * 综合运用前面学到的所有知识
  */
-public class L07_Practice {
+public class JL07_Practice {
 
     public static void main(String[] args) {
 

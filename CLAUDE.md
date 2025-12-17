@@ -18,7 +18,7 @@ sbt console                              # 启动 Scala REPL
 
 # Maven (Java)
 mvn compile                                            # 编译 Java 代码
-mvn exec:java -Dexec.mainClass="lessons.L01_BasicSyntax"   # 运行 Java 课程
+mvn exec:java -Dexec.mainClass="lessons.JL01_BasicSyntax"  # 运行 Java 课程
 mvn exec:java -Dexec.mainClass="spark.J01_RDDBasics"       # 运行 Java Spark 课程
 ```
 
@@ -44,13 +44,13 @@ src/main/
 │
 └── java/                           # Java 源码
     ├── lessons/                    # Java 基础教程（对比 Scala）
-    │   ├── L01_BasicSyntax.java        # 变量、类型、控制结构
-    │   ├── L02_Functions.java          # Lambda、函数式接口
-    │   ├── L03_OOP.java                # 类、接口、继承
-    │   ├── L04_PatternMatching.java    # instanceof、正则匹配
-    │   ├── L05_Collections.java        # 集合、Stream API
-    │   ├── L06_Advanced.java           # Optional、泛型、Try
-    │   └── L07_Practice.java           # 综合练习：任务管理系统
+    │   ├── JL01_BasicSyntax.java       # 变量、类型、控制结构
+    │   ├── JL02_Functions.java         # Lambda、函数式接口
+    │   ├── JL03_OOP.java               # 类、接口、继承
+    │   ├── JL04_PatternMatching.java   # instanceof、正则匹配
+    │   ├── JL05_Collections.java       # 集合、Stream API
+    │   ├── JL06_Advanced.java          # Optional、泛型、JTry
+    │   └── JL07_Practice.java          # 综合练习：任务管理系统
     │
     └── spark/                      # Spark 教程 (Java)
         ├── J01_RDDBasics.java          # RDD 创建与操作
@@ -86,13 +86,13 @@ sbt "runMain spark.S04_WordCount"
 
 **基础 (按顺序学习):**
 ```bash
-mvn exec:java -Dexec.mainClass="lessons.L01_BasicSyntax"
-mvn exec:java -Dexec.mainClass="lessons.L02_Functions"
-mvn exec:java -Dexec.mainClass="lessons.L03_OOP"
-mvn exec:java -Dexec.mainClass="lessons.L04_PatternMatching"
-mvn exec:java -Dexec.mainClass="lessons.L05_Collections"
-mvn exec:java -Dexec.mainClass="lessons.L06_Advanced"
-mvn exec:java -Dexec.mainClass="lessons.L07_Practice"
+mvn exec:java -Dexec.mainClass="lessons.JL01_BasicSyntax"
+mvn exec:java -Dexec.mainClass="lessons.JL02_Functions"
+mvn exec:java -Dexec.mainClass="lessons.JL03_OOP"
+mvn exec:java -Dexec.mainClass="lessons.JL04_PatternMatching"
+mvn exec:java -Dexec.mainClass="lessons.JL05_Collections"
+mvn exec:java -Dexec.mainClass="lessons.JL06_Advanced"
+mvn exec:java -Dexec.mainClass="lessons.JL07_Practice"
 ```
 
 **Spark 进阶:**

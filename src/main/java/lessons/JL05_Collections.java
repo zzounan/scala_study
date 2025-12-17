@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * - Stream API（类似 Scala 高阶函数）
  * - 集合转换
  */
-public class L05_Collections {
+public class JL05_Collections {
 
     public static void main(String[] args) {
 
@@ -307,7 +307,7 @@ public class L05_Collections {
         System.out.println("Optional 提取并翻倍: " + extracted);
 
         System.out.println("\n==================================================");
-        System.out.println("第五课完成！运行 L06_Advanced 继续学习");
+        System.out.println("第五课完成！运行 JL06_Advanced 继续学习");
         System.out.println("==================================================");
     }
 }

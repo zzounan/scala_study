@@ -9,7 +9,7 @@ package lessons;
  * - 字符串操作
  * - 控制结构
  */
-public class L01_BasicSyntax {
+public class JL01_BasicSyntax {
 
     public static void main(String[] args) {
 
@@ -171,7 +171,7 @@ public class L01_BasicSyntax {
         System.out.println("今天是: " + dayName);
 
         System.out.println("\n==================================================");
-        System.out.println("第一课完成！运行 L02_Functions 继续学习");
+        System.out.println("第一课完成！运行 JL02_Functions 继续学习");
         System.out.println("==================================================");
     }
 }

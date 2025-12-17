@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * - 泛型
  * - 懒加载
  */
-public class L06_Advanced {
+public class JL06_Advanced {
 
     public static void main(String[] args) {
 
@@ -37,7 +37,7 @@ public class L06_Advanced {
         System.out.println("filter: " + result.filter(v -> v > 3));
 
         // Optional 链式操作
-        Optional<String> email = findUser(1).flatMap(L06_Advanced::findEmail);
+        Optional<String> email = findUser(1).flatMap(JL06_Advanced::findEmail);
         System.out.println("链式查询: " + email);
 
         // 类似 for 推导式
@@ -54,8 +54,8 @@ public class L06_Advanced {
         System.out.println("divideEither(10, 2) = " + divideEither(10, 2));
         System.out.println("divideEither(10, 0) = " + divideEither(10, 0));
 
-        // 处理 Either
-        Either<String, Double> either = divideEither(10, 2);
+        // 处理 JEither
+        JEither<String, Double> either = divideEither(10, 2);
         if (either.isRight()) {
             System.out.println("成功: " + either.getRight());
         } else {
@@ -63,7 +63,7 @@ public class L06_Advanced {
         }
 
         // map 操作
-        Either<String, Double> mapped = divideEither(10, 2).map(v -> v * 100);
+        JEither<String, Double> mapped = divideEither(10, 2).map(v -> v * 100);
         System.out.println("Either map: " + mapped);
 
         // ============================================
@@ -74,19 +74,19 @@ public class L06_Advanced {
         System.out.println("parseNumber(\"123\") = " + parseNumber("123"));
         System.out.println("parseNumber(\"abc\") = " + parseNumber("abc"));
 
-        // Try 的方法
-        Try<Integer> parsed = parseNumber("456");
+        // JTry 的方法
+        JTry<Integer> parsed = parseNumber("456");
         System.out.println("getOrElse: " + parsed.getOrElse(0));
         System.out.println("map: " + parsed.map(n -> n * 2));
         System.out.println("toOptional: " + parsed.toOptional());
 
         // 链式处理
-        Try<Integer> computation = parseNumber("10")
+        JTry<Integer> computation = parseNumber("10")
                 .flatMap(a -> parseNumber("20").map(b -> a + b));
-        System.out.println("链式Try计算: " + computation);
+        System.out.println("链式JTry计算: " + computation);
 
         // recover
-        Try<Integer> recovered = parseNumber("abc").recover(e -> -1);
+        JTry<Integer> recovered = parseNumber("abc").recover(e -> -1);
         System.out.println("recover: " + recovered);
 
         // ============================================
@@ -160,7 +160,7 @@ public class L06_Advanced {
         System.out.println(service.query("SELECT * FROM users"));
 
         System.out.println("\n==================================================");
-        System.out.println("第六课完成！运行 L07_Practice 进行综合练习");
+        System.out.println("第六课完成！运行 JL07_Practice 进行综合练习");
         System.out.println("==================================================");
     }
 
@@ -182,13 +182,13 @@ public class L06_Advanced {
         return Optional.of(user + "@example.com");
     }
 
-    public static Either<String, Double> divideEither(int a, int b) {
-        if (b == 0) return Either.left("除数不能为零");
-        return Either.right((double) a / b);
+    public static JEither<String, Double> divideEither(int a, int b) {
+        if (b == 0) return JEither.left("除数不能为零");
+        return JEither.right((double) a / b);
     }
 
-    public static Try<Integer> parseNumber(String s) {
-        return Try.of(() -> Integer.parseInt(s));
+    public static JTry<Integer> parseNumber(String s) {
+        return JTry.of(() -> Integer.parseInt(s));
     }
 
     public static <A, B> Pair<B, A> swap(Pair<A, B> pair) {
@@ -201,26 +201,26 @@ public class L06_Advanced {
 }
 
 // ============================================
-// Either 类（模拟 Scala 的 Either）
+// JEither 类（模拟 Scala 的 Either，避免命名冲突）
 // ============================================
 
-class Either<L, R> {
+class JEither<L, R> {
     private final L left;
     private final R right;
     private final boolean isRight;
 
-    private Either(L left, R right, boolean isRight) {
+    private JEither(L left, R right, boolean isRight) {
         this.left = left;
         this.right = right;
         this.isRight = isRight;
     }
 
-    public static <L, R> Either<L, R> left(L value) {
-        return new Either<>(value, null, false);
+    public static <L, R> JEither<L, R> left(L value) {
+        return new JEither<>(value, null, false);
     }
 
-    public static <L, R> Either<L, R> right(R value) {
-        return new Either<>(null, value, true);
+    public static <L, R> JEither<L, R> right(R value) {
+        return new JEither<>(null, value, true);
     }
 
     public boolean isRight() { return isRight; }
@@ -228,9 +228,9 @@ class Either<L, R> {
     public L getLeft() { return left; }
     public R getRight() { return right; }
 
-    public <T> Either<L, T> map(Function<R, T> f) {
-        if (isRight) return Either.right(f.apply(right));
-        return Either.left(left);
+    public <T> JEither<L, T> map(Function<R, T> f) {
+        if (isRight) return JEither.right(f.apply(right));
+        return JEither.left(left);
     }
 
     @Override
@@ -240,34 +240,34 @@ class Either<L, R> {
 }
 
 // ============================================
-// Try 类（模拟 Scala 的 Try）
+// JTry 类（模拟 Scala 的 Try，避免命名冲突）
 // ============================================
 
-class Try<T> {
+class JTry<T> {
     private final T value;
     private final Exception exception;
     private final boolean isSuccess;
 
-    private Try(T value, Exception exception, boolean isSuccess) {
+    private JTry(T value, Exception exception, boolean isSuccess) {
         this.value = value;
         this.exception = exception;
         this.isSuccess = isSuccess;
     }
 
-    public static <T> Try<T> of(Supplier<T> supplier) {
+    public static <T> JTry<T> of(Supplier<T> supplier) {
         try {
-            return new Try<>(supplier.get(), null, true);
+            return new JTry<>(supplier.get(), null, true);
         } catch (Exception e) {
-            return new Try<>(null, e, false);
+            return new JTry<>(null, e, false);
         }
     }
 
-    public static <T> Try<T> success(T value) {
-        return new Try<>(value, null, true);
+    public static <T> JTry<T> success(T value) {
+        return new JTry<>(value, null, true);
     }
 
-    public static <T> Try<T> failure(Exception e) {
-        return new Try<>(null, e, false);
+    public static <T> JTry<T> failure(Exception e) {
+        return new JTry<>(null, e, false);
     }
 
     public boolean isSuccess() { return isSuccess; }
@@ -279,34 +279,34 @@ class Try<T> {
         return isSuccess ? value : defaultValue;
     }
 
-    public <U> Try<U> map(Function<T, U> f) {
+    public <U> JTry<U> map(Function<T, U> f) {
         if (isSuccess) {
             try {
-                return Try.success(f.apply(value));
+                return JTry.success(f.apply(value));
             } catch (Exception e) {
-                return Try.failure(e);
+                return JTry.failure(e);
             }
         }
-        return Try.failure(exception);
+        return JTry.failure(exception);
     }
 
-    public <U> Try<U> flatMap(Function<T, Try<U>> f) {
+    public <U> JTry<U> flatMap(Function<T, JTry<U>> f) {
         if (isSuccess) {
             try {
                 return f.apply(value);
             } catch (Exception e) {
-                return Try.failure(e);
+                return JTry.failure(e);
             }
         }
-        return Try.failure(exception);
+        return JTry.failure(exception);
     }
 
-    public Try<T> recover(Function<Exception, T> f) {
+    public JTry<T> recover(Function<Exception, T> f) {
         if (isFailure()) {
             try {
-                return Try.success(f.apply(exception));
+                return JTry.success(f.apply(exception));
             } catch (Exception e) {
-                return Try.failure(e);
+                return JTry.failure(e);
             }
         }
         return this;

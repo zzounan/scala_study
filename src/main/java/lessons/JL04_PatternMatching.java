@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  *
  * 注意：Java 8 的模式匹配能力有限，这里展示等效实现
  */
-public class L04_PatternMatching {
+public class JL04_PatternMatching {
 
     public static void main(String[] args) {
 
@@ -142,7 +142,7 @@ public class L04_PatternMatching {
         System.out.println("正数翻倍: " + positiveDoubled);
 
         System.out.println("\n==================================================");
-        System.out.println("第四课完成！运行 L05_Collections 继续学习");
+        System.out.println("第四课完成！运行 JL05_Collections 继续学习");
         System.out.println("==================================================");
     }
 
